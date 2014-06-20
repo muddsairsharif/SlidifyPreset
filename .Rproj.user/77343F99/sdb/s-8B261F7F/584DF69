@@ -1,0 +1,16 @@
+{
+    "contents" : "---\ntitle       : Data Development Products\nsubtitle    : Census Visualization\nauthor      : Muddsair Sharif\njob         : Data Scientist Track\nframework   : io2012        # {io2012, html5slides, shower, dzslides, ...}\nhighlighter : highlight.js  # {highlight.js, prettify, highlight}\nhitheme     : tomorrow      # \nwidgets     : []            # {mathjax, quiz, bootstrap}\nmode        : selfcontained # {standalone, draft}\nknit        : slidify::knit2slides\n---\n\n## Census Visualization\n\n1. a sophisticated application that visualizes US Census data\n2. Presentation will show you how to load data\n3. R Scripts\n4. Output\n\n--- \n\n## counties.rds\n\n1. counties.rds is a dataset of demographic data for each county in the United States\n2. collected with the UScensus2010 R package\n3. You can download it here [http://shiny.rstudio.com/tutorial/lesson5/census-app/data/counties.rds]\n\n---  \n\n## Dataset| counties.rds\n\n1. the name of each county in the United States\n2. the total population of the county\n3. the percent of residents in the county who are white, black, hispanic, or asian\n\n```{r}\ncounties <- readRDS(\"C:\\\\DEP\\\\DevelopmentDataProducts\\\\SlidifyPreset\\\\data\\\\counties.rds\")\nhead(counties)\n\n```\n\n--- \n\n## helpers.R\n\n1. helpers.R is an R script that can help you make choropleth maps\n2. A choropleth map is a map that uses color to display the regional variation of a variable.\n3. In our case, helpers.R will create percent_map, a function designed to map the data in counties.rds\n4. helpers.R uses the maps and mapproj packages in R.\n\n```{r}\nlibrary(maps)\nlibrary(mapproj)\nsource(\"C:\\\\DEP\\\\DevelopmentDataProducts\\\\SlidifyPreset\\\\helpers.R\")\ncounties <- readRDS(\"C:\\\\DEP\\\\DevelopmentDataProducts\\\\SlidifyPreset\\\\data\\\\counties.rds\")\n\n```\n\n--- .class #id \n\n##  Census Visualization- Application\n\n```{r,echo=TRUE}\n\npercent_map(counties$white, \"darkgreen\", \"% white\")\n```\n\n\n--- .class #id \n\n\n\n\n",
+    "created" : 1403240008149.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1682956505",
+    "id" : "584DF69",
+    "lastKnownWriteTime" : 1403252258,
+    "path" : "C:/DEP/DevelopmentDataProducts/SlidifyPreset/SlidifyPreset/index.Rmd",
+    "project_path" : "SlidifyPreset/index.Rmd",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_markdown"
+}

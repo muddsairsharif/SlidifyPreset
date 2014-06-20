@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Data Development Products</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Data Development Products">
+  <meta name="author" content="Muddsair Sharif">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Data Development Products</h1>
+    <h2>Census Visualization</h2>
+    <p>Muddsair Sharif<br/>Data Scientist Track</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Census Visualization</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>a sophisticated application that visualizes US Census data</li>
+<li>Presentation will show you how to load data</li>
+<li>R Scripts</li>
+<li>Output</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>counties.rds</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>counties.rds is a dataset of demographic data for each county in the United States</li>
+<li>collected with the UScensus2010 R package</li>
+<li>You can download it here [<a href="http://shiny.rstudio.com/tutorial/lesson5/census-app/data/counties.rds">http://shiny.rstudio.com/tutorial/lesson5/census-app/data/counties.rds</a>]</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Dataset| counties.rds</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>the name of each county in the United States</li>
+<li>the total population of the county</li>
+<li>the percent of residents in the county who are white, black, hispanic, or asian</li>
+</ol>
+
+<pre><code class="r">counties &lt;- readRDS(&quot;C:\\DEP\\DevelopmentDataProducts\\SlidifyPreset\\data\\counties.rds&quot;)
+head(counties)
+</code></pre>
+
+<pre><code>##              name total.pop white black hispanic asian
+## 1 alabama,autauga     54571  77.2  19.3      2.4   0.9
+## 2 alabama,baldwin    182265  83.5  10.9      4.4   0.7
+## 3 alabama,barbour     27457  46.8  47.8      5.1   0.4
+## 4    alabama,bibb     22915  75.0  22.9      1.8   0.1
+## 5  alabama,blount     57322  88.9   2.5      8.1   0.2
+## 6 alabama,bullock     10914  21.9  71.0      7.1   0.2
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>helpers.R</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>helpers.R is an R script that can help you make choropleth maps</li>
+<li>A choropleth map is a map that uses color to display the regional variation of a variable.</li>
+<li>In our case, helpers.R will create percent_map, a function designed to map the data in counties.rds</li>
+<li>helpers.R uses the maps and mapproj packages in R.</li>
+</ol>
+
+<pre><code class="r">library(maps)
+library(mapproj)
+source(&quot;C:\\DEP\\DevelopmentDataProducts\\SlidifyPreset\\helpers.R&quot;)
+counties &lt;- readRDS(&quot;C:\\DEP\\DevelopmentDataProducts\\SlidifyPreset\\data\\counties.rds&quot;)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Census Visualization- Application</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">
+percent_map(counties$white, &quot;darkgreen&quot;, &quot;% white&quot;)
+</code></pre>
+
+<p><img src="figure/unnamed-chunk-3.png" alt="plot of chunk unnamed-chunk-3"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Census Visualization'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='counties.rds'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Dataset| counties.rds'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='helpers.R'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='Census Visualization- Application'>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title=''>
+         6
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
