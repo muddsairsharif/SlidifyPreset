@@ -1,7 +1,7 @@
 SlidifyPreset
 =============
 
-please select the SlidifyPreset folder to view the Slidify Presentation with Markdown file.
+please select the SlidifyPreset folder [https://github.com/muddsairsharif/SlidifyPreset/tree/master/SlidifyPreset ] to view the Slidify Presentation with Markdown file.
 use https://github.com/muddsairsharif/SlidifyPreset to view source file with R Script.
 
 
